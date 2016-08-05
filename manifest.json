@@ -1,0 +1,31 @@
+{
+  "name": "Fiddler",
+  "description": "This extension adds download functionality to the JSFiddle website, allowing you to download your code fiddles!",
+  "version": "0.1",
+  "permissions": [
+    "activeTab",
+    "https://jsfiddle.net/*",
+    "https://fiddle.jshell.net/*",
+    "declarativeContent"
+  ],
+  "content_scripts": [
+    {
+      "run_at": "document_idle",
+      "matches": ["https://jsfiddle.net/*", "https://fiddle.jshell.net/*"],
+      "js": ["fiddler_content.js"]
+    }
+  ],
+  "page_action": {
+    "default_icon": {
+      "19": "fiddler_icon_blue_19.png",
+      "38": "fiddler_icon_blue_38.png"
+    },
+    "default_title": "Fiddler",
+    "default_popup": "fiddler_popup.html"
+  },
+  "background": {
+        "scripts": ["fiddler_background.js"],
+        "persistent": false
+    },
+  "manifest_version": 2
+}
